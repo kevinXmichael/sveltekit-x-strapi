@@ -16,6 +16,8 @@ Nested layouts work the same, you can create a global layout for all files in yo
 
 ## Reset layouts
 
+As far as I know not possible anymore that easily but a workaround is using groups an a lot of nested layouts instead of a global one: https://kit.svelte.dev/docs/advanced-routing#advanced-layouts-layout
+
 ## Fetch or prefetch data
 
 There are two concepts:
