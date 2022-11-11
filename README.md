@@ -2,27 +2,29 @@
 
 Source: https://vitejs.dev/guide/env-and-mode.html
 
-- Use a .env file
-- Create a .env.example file for others in the project
+- Use an .env file
+- Create an .env.example file for others in the project
 - Add .env file to .gitignore
-- Always prefix them with VITE\_ in a Vite project
+- Always prefix them with `VITE_` in a Vite project
 - Access .env keys via `import.meta.env.VITE_SOME_KEY` in your projects
 
 ## Nested layouts and routing
 
-Routing is just folder based, if you create a path like /articles/[id] all articles can be found on your website like so: `website.com/articles/23810`.
+Routing is just folder based, if you create a path like `/articles/[id]` all articles can be found on your website like so: `website.com/articles/1234` (where 1234 is the `id`).
 
-Nested layouts work the same, you can create a global layout for all files in your root folder `/+layout.svelte`. Each sub folder can have nested layout as well if you create it in there like `/articles/+layout.svelte`. Don't forget to always add a `<slot />` in your layouts, otherwise the content cannot be displayed inside it.
+Nested layouts work the same, you can create a global layout for all files in your root folder `/+layout.svelte`. Each subfolder can have nested layouts as well if you create it in there like `/articles/+layout.svelte`. Don't forget to always add a `<slot />` in your layouts, otherwise the content cannot be displayed inside it.
 
 ## Reset layouts
 
-As far as I know not possible anymore that easily but a workaround is using groups an a lot of nested layouts instead of a global one: https://kit.svelte.dev/docs/advanced-routing#advanced-layouts-layout
+As far as I know it is not possible anymore, but a "workaround" is using groups instead of a global layout: https://kit.svelte.dev/docs/advanced-routing#advanced-layouts-layout
+
+Another idea is to just use Svelte Components over layouts in some cases and don't use a global layout at all.
 
 ## Fetch or prefetch data
 
 There are two concepts:
 
-1. Fetch with +page.ts which can kind of block the UI because of SSR but can be great if you just want to pass and handle local (or already fetched) data:
+1. Fetch with `+page.ts` which can kind of block the UI because of SSR but can be great if you just want to pass and handle local (or already fetched) data:
 
 ```javascript
 export const load: PageLoad = ({ params }) => {
